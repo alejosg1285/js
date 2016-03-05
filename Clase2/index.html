@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demo">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJs</title>
+</head>
+<body>
+    <!-- Uso de data binding. -->
+    Nombre: <input type="text" ng-model="name" />{{name}}
+    <br />
+    <!-- Uso de la directiva ng-repeat. -->
+    <div ng-init="nombres=[{name: 'alejo'}, {name: 'maria'}, {name: 'naty'}]">
+        <!-- Caja de texto para filtrar en la lista. -->
+        <input type="text" ng-model="name" />
+        <ul>
+            <!-- Se agrega un filtro para convertir los datos a mayuscula. -->
+            <!-- Se agrega filtro para ordenar por nombre de forma descendente. -->
+            <!-- Se agrega filtro para filtrar por el texto ingresado en el input creado anteriormente en este div. -->
+            <li ng-repeat="nombre in nombres | filter:name | orderBy: '-name'">Nombre: {{nombre.name | uppercase}}</li>
+        </ul>
+    </div>
+    <br />
+    <!-- Uso de modulos y controladores.-->
+    <div ng-controller="StudentsController as ctrl">
+        <pre>{{ctrl.students | json}}</pre>
+
+        <button type="button" ng-click="ctrl.students.saludar(ctrl.students)">salude</button>
+
+        <!-- Recibe un boolean y destruye el elemento del DOM. -->
+        <p ng-if="ctrl.muestre">m dajkds knjsdsaaa</p>
+    </div>
+
+    <script src="../lib/angular.js"></script>
+    <script src="../lib/app.js"></script>
+</body>
+</html>
