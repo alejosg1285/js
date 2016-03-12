@@ -1,0 +1,29 @@
+{
+  "name": "js",
+  "version": "0.0.0",
+  "description": "package.json del diplomado.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alejosg1285/js.git"
+  },
+  "keywords": [
+    "angular",
+    "angularjs"
+  ],
+  "author": "Alejandro Saa Garcia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alejosg1285/js/issues"
+  },
+  "homepage": "https://github.com/alejosg1285/js#readme",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-ui-router": "^0.2.18",
+    "flat-ui": "^2.1.1",
+    "flatui": "^1.0.0"
+  }
+}
