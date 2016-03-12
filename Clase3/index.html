@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>Controllers AngularJS</title>
+        <link rel="stylesheet" href="../node_modules/flat-ui/bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" href="../node_modules/flat-ui/css/flat-ui.css" />
+    </head>
+    <body class="container" ng-controller="AppController as appCtrl">
+        <h1>NG</h1>
+
+        <h3>{{appCtrl.nombre}}</h3>
+
+        <ul>
+            <li ng-repeat="gatita in appCtrl.personas">{{gatita.nombre}}</li>
+        </ul>
+
+        <!--ui-sref -> es el state del router.-->
+        <button type="button" ui-sref="users">Users</button>
+
+        <ui-view></ui-view>
+
+        <input type="text" ng-model="algo"/> {{algo}}
+
+        <script src="../node_modules/angular/angular.js"></script>
+        <script src="../node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="components/app.js"></script>
+        <script src="components/app.controller.js"></script>
+
+        <script src="components/users/users.module.js"></script>
+        <script src="components/app.controller.js"></script>
+    </body>
+</html>
