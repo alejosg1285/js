@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+    <head>
+        <meta charset="UTF-8">
+        <title>Estudiantes</title>
+        <link rel="stylesheet" href="../../node_modules/flat-ui/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="../../node_modules/flat-ui/css/flat-ui.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="../../node_modules/ng-table/dist/ng-table.css">
+    </head>
+    <body class="container" ng-controller="appController as appCtrl">
+        <h3>Estudiantes</h3>
+
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+                    <span class="sr-only">Toggle navigation</span>
+                </button>
+                <a class="navbar-brand" ui-sref="index">AngularJS</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse-01">
+                <ul class="nav navbar-nav">
+                    <li><a ui-sref="students">Estudiantes</a></li>
+                    <li><a ui-sref="people">Personas</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav><!-- /navbar -->
+
+        <div ui-view>
+            <p class="navbar-text">{{appCtrl.test}}</p>
+        </div>
+
+        <script src="../../node_modules/angular/angular.js"></script>
+        <script src="../../node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="../../node_modules/ng-table/dist/ng-table.js"></script>
+        <!-- Inclusión de los archivos de la página principal. -->
+        <script src="app.module.js"></script>
+        <script src="app.controller.js"></script>
+        <script src="app.route.js"></script>
+        <!-- Inclusión de los archivos de la página de personas (people). -->
+        <script src="components/people/people.module.js"></script>
+        <script src="components/people/people.controller.js"></script>
+        <script src="components/people/people.factory.js"></script>
+    </body>
+</html>

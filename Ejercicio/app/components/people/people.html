@@ -1,0 +1,85 @@
+<p class="navbar-text col-md-12">{{peopleCtrl.msj}}</p>
+
+<section class="col-md-12">
+    <button ng-click="peopleCtrl.formNew = true" ng-hide="peopleCtrl.formNew" class="btn btn-block btn-embossed btn-primary">
+        Nueva persona
+    </button>
+    <br />
+    <div class="row" ng-if="peopleCtrl.formNew">
+        <div class="col-md-12">
+            <form name="peopleForm" id="peopleForm" role="form" ng-submit="peopleCtrl.addPerson()">
+                <div class="form-group">
+                    <label for="tbNombre" class="sr-only">Name</label>
+                    <input type="text" class="form-control" name="tbNombre" id="tbNombre" ng-model="peopleCtrl.newPerson.full_name" ng-pattern="peopleCtrl.patternText" placeholder="Jane Doe" required>
+                    <span class="navbar-text" ng-if="!peopleForm.$pristine && peopleForm.tbNombre.$error.required">
+                        Nombre es obligatorio
+                    </span>
+                    <span class="navbar-text" ng-if="!peopleForm.$pristine && peopleForm.tbNombre.$error.pattern">
+                        Nombre debe ser caracteres de la A a la Z.
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="tbEmail" class="sr-only">Email</label>
+                    <input type="email" class="form-control" name="tbEmail" id="tbEmail" ng-model="peopleCtrl.newPerson.email" placeholder="jane.doe@example.com">
+                    <span ng-if="!peopleForm.$pristine && peopleForm.tbEmail.$error.email">
+                        Correo no tiene formato valido.
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="tbPhone" class="sr-only">Phone</label>
+                    <input type="number" class="form-control" name="tbPhone" id="tbPhone" ng-model="peopleCtrl.newPerson.phone" placeholder="777 7777" required>
+                    <span ng-if="!peopleForm.$pristine && peopleForm.tbPhone.$error.required">
+                        Telefono es obligatorio
+                    </span>
+                    <span ng-if="!peopleForm.$pristine && peopleForm.tbPhone.$error.number">
+                        Telefono es numerico
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="tbAddress" class="sr-only">Address</label>
+                    <input type="text" class="form-control" name="tbAddress" id="tbAddress" ng-model="peopleCtrl.newPerson.address" placeholder="Av. 3" required>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only">Gender</label>
+                    <select name="ddGender" ng-model="peopleCtrl.newPerson.gender" class="form-control select select-primary select-block mbl" required>
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <button type="submit" class="btn btn-primary btn-wide" ng-disabled="peopleForm.$invalid">Registrar</button>
+                        <button type="submit" class="btn btn-inverse btn-wide" ng-click="peopleCtrl.formNew = false">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br /><br />
+    <div class="table-responsive">
+        <table ng-table="peopleCtrl.tableParams" class="table table-condensed table-bordered table-striped ng-table-responsive">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>E-mail</th>
+                    <th>Telefono</th>
+                    <th>Direccion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="person in $data">
+                    <td>{{person.id}}</td>
+                    <td>{{person.full_name}}</td>
+                    <td>{{person.email}}</td>
+                    <td>{{person.phone}}</td>
+                    <td>{{person.address}}</td>
+                    <!--<td>-->
+                        <!--<span class="fui-new"></span>-->
+                        <!--<span class="fui-cross"></span>-->
+                    <!--</td>-->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

@@ -1,0 +1,8 @@
+.ng-invalid-required, .ng-invalid-email {
+    color: red
+}
+
+.ng-invalid-number
+{
+    color: red;
+}
